@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "503865299413",
+    "firebase_url": "https://sabzi-wala-app-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "sabzi-wala-app",
+    "storage_bucket": "sabzi-wala-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:503865299413:android:35e20dd70223d1524bed5c",
+        "android_client_info": {
+          "package_name": "com.example.sabzi_wala_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAqTf3BpdLXO33RTwOlph2ZPYzJ1_G_14"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
