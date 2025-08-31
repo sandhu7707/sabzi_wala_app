@@ -22,13 +22,14 @@ class LocationServicesPage extends StatefulWidget {
   State<LocationServicesPage> createState() => LocationServicesPageState();
 }
 
+
 class LocationServicesPageState extends State<LocationServicesPage>
     with OSMMixinObserver {
   static final String STATIC_MODE = 'static';
   static final String LIVE_MODE = 'live';
 
-  bool staticLocationStateRestored = false;
-  bool liveLocationStateRestored = false;
+  bool staticLocationStateRestored = true;
+  bool liveLocationStateRestored = true;
   GeoPoint? location;
   bool isMapReady = false;
   GeoPoint? liveLocation;
@@ -89,10 +90,11 @@ class LocationServicesPageState extends State<LocationServicesPage>
   void initState() {
     super.initState();
 
-    
-    controller.addObserver(this);
+        controller.addObserver(this);
+
 
     print("getting values in dbs");
+    WidgetsBinding.instance.addPostFrameCallback((_) {
     final user = FirebaseAuth.instance.currentUser;
     if (user != null) {
       DbUtils.getFirestoreRow(user.uid, "vendors").then((data) {
@@ -198,7 +200,6 @@ class LocationServicesPageState extends State<LocationServicesPage>
         }
       });
     }
-    WidgetsBinding.instance.addPostFrameCallback((_) {
       if (user == null) {
         context.go('/signInPage');
       } else if (user.displayName == null || user.displayName == '') {
@@ -604,6 +605,8 @@ class LocationServicesPageState extends State<LocationServicesPage>
 
   @override
   Widget build(BuildContext context) {
+    
+    // controller.addObserver(this);
     final user = FirebaseAuth.instance.currentUser;
 
     final vendor = <String, dynamic>{
